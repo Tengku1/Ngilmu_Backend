@@ -1,0 +1,39 @@
+{
+  "name": "ngilmu",
+  "version": "1.0.0",
+  "description": "Website mencari dosen",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ngilmu"
+  ],
+  "author": "CPSG-54",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "body-parser": "^1.19.0",
+    "connect-timeout": "^1.9.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "ip": "^1.1.5",
+    "joi": "^17.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.2",
+    "mysql2": "^2.2.5",
+    "nodemailer": "^6.7.2",
+    "sequelize": "^6.17.0",
+    "swagger-ui-express": "^4.3.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "nodemon": "^2.0.16"
+  }
+}
