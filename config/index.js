@@ -16,5 +16,5 @@ module.exports = {
         IDLE: 10000
     },
     BASE_URL: ip.address(),
-    PORT: 3306
+    PORT: 3000
 };
