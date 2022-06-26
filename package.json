@@ -1,6 +1,9 @@
 {
   "name": "ngilmu",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.16.1"
+  },
   "description": "Website mencari dosen",
   "main": "index.js",
   "scripts": {
