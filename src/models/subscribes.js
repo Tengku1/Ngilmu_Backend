@@ -35,15 +35,7 @@ module.exports = (sequelize, DataTypes) => {
         total_price: {
             type: DataTypes.INTEGER,
             allowNull: false
-        },
-        created_at: {
-            type: DataTypes.DATE,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        },
-        modified_at: {
-            type: DataTypes.DATE,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        },
+        }
     }, {
         timestamps: false,
         sequelize,

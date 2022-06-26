@@ -31,15 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         courses: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        created_at: {
-            type: DataTypes.DATE,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        },
-        modified_at: {
-            type: DataTypes.DATE,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
-        },
+        }
     }, {
         timestamps: false,
         sequelize,
