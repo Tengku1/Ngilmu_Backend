@@ -28,7 +28,7 @@ class Server {
         });
 
         return new Promise((resolve) => {
-            this.server = this.app.listen(port, baseUrl, () => {
+            this.server = this.app.listen(port, () => {
                 console.log(`$Berjalan Di http://${baseUrl}:${port}`);
                 return resolve();
             });
