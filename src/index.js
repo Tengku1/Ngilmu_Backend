@@ -10,4 +10,4 @@ if (process.env.NODE_ENV === 'development') {
     baseUrl = 'localhost';
 }
 
-server.listen(baseUrl, PORT || 3306);
+server.listen(baseUrl, PORT || 3000);
