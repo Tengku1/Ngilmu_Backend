@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const register = Joi.object({
-    username: Joi.string().required(),
+    username: Joi.string().email().required(),
     password: Joi.string().required().min(8),
     address: Joi.string().required(),
     roles: Joi.string().required()

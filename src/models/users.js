@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     users.init({
-        username: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false
         },

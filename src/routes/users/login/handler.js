@@ -6,12 +6,12 @@ const jwt = require('jsonwebtoken');
 
 module.exports = async (req, res) => {
     const {
-        username,
+        email,
         password
     } = req.body;
     const user = await users.findOne({
         where: {
-            username,
+            email,
             password
         }
     });
@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
 
     const token = jwt.sign({
         id: user['id'],
-        username: user['username'],
+        email: user['email'],
         address: user['address'],
         roles: user['roles']
     }, process.env.SECRET_KEY);
