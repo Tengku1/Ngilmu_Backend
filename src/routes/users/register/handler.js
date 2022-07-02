@@ -5,14 +5,17 @@ const { error_handler } = require('../../../utils/index');
 
 module.exports = async (req, res) => {
     const {
-        username
+        username,
+        password
     } = req.body;
     const data = await users.findOne({
         where: {
-            username
+            username,
+            password
         }
     });
-    if (!data) {
+
+    if (data) {
         throw new error_handler(400, "Data Duplikat !");
     }
 
