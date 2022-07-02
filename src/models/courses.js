@@ -24,6 +24,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.ENUM('Active', 'Deactivate'),
             allowNull: false
         },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         price: {
             type: DataTypes.INTEGER,
             allowNull: false

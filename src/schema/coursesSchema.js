@@ -5,6 +5,7 @@ const post = Joi.object({
     type: Joi.string().required().valid('akademik', 'non-akademik'),
     img: Joi.string().required(),
     status: Joi.string().required().valid('active', 'deactivate'),
+    description: Joi.string().required(),
     price: Joi.number().required()
 }).options({
     abortEarly: false
@@ -16,6 +17,7 @@ const put = Joi.object({
     type: Joi.string().valid('akademik', 'non-akademik'),
     img: Joi.string().required(),
     status: Joi.string().valid('active', 'deactivate'),
+    description: Joi.string().required(),
     price: Joi.number()
 }).options({
     abortEarly: false
