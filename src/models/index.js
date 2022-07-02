@@ -39,18 +39,6 @@ const sequelize = new Sequelize(config.DB, config.USER, config.PASSWORD, {
 const users = require('./users')(sequelize, Sequelize);
 const teachers = require('./teachers')(sequelize, Sequelize);
 const courses = require('./courses')(sequelize, Sequelize);
-const subscribe = require('./subscribes')(sequelize, Sequelize);
-
-// Relationship hasOne
-users.hasOne(subscribe, { foreignKey: 'user_id' });
-teachers.hasOne(subscribe, { foreignKey: 'guru_id' });
-courses.hasOne(subscribe, { foreignKey: 'courses_id' });
-
-// Relationship belongsTo
-subscribe.belongsTo(users, { foreignKey: 'user_id' });
-subscribe.belongsTo(teachers, { foreignKey: 'guru_id' });
-subscribe.belongsTo(courses, { foreignKey: 'courses_id' });
-
 
 // Export Models
 module.exports = {
