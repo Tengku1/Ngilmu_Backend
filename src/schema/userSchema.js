@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const register = Joi.object({
-    username: Joi.string().email().required(),
+    email: Joi.string().email().required(),
     password: Joi.string().required().min(8),
     address: Joi.string().required(),
     roles: Joi.string().required()
@@ -9,7 +9,7 @@ const register = Joi.object({
     abortEarly: false
 });
 const login = Joi.object({
-    username: Joi.string().required(),
+    email: Joi.string().required(),
     password: Joi.string().required()
 }).options({
     abortEarly: false
