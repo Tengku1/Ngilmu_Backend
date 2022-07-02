@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.ENUM('akademik', 'non-akademik'),
             allowNull: false
         },
+        img: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         status: {
             type: DataTypes.ENUM('Active', 'Deactivate'),
             allowNull: false
