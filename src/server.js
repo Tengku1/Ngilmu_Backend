@@ -17,10 +17,6 @@ class Server {
         this.app.use(cors());
         this.app.use('/public', express.static(__dirname + "/public"));
 
-        this.app.use('/', (req, res) => {
-            res.send('Hello World');
-        });
-
         routes.forEach(route => this.app.use(route));
     }
 
