@@ -14,23 +14,18 @@ module.exports = (sequelize, DataTypes) => {
         },
         address: {
             type: DataTypes.STRING,
-            allowNull: false
         },
         education: {
             type: DataTypes.STRING,
-            allowNull: false
         },
         age: {
             type: DataTypes.STRING,
-            allowNull: false
         },
         gender: {
             type: DataTypes.ENUM('Wanita', 'Pria'),
-            allowNull: false
         },
         courses: {
             type: DataTypes.STRING,
-            allowNull: false
         },
         phone: {
             type: DataTypes.STRING,

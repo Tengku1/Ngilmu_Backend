@@ -1,10 +1,10 @@
 const Joi = require('joi');
 
 const post = Joi.object({
+    teacherId: Joi.number().required(),
     name: Joi.string().required(),
     type: Joi.string().required().valid('akademik', 'non-akademik'),
     img: Joi.string().required(),
-    status: Joi.string().required().valid('active', 'deactivate'),
     description: Joi.string().required(),
     price: Joi.number().required()
 }).options({
@@ -13,10 +13,10 @@ const post = Joi.object({
 
 const put = Joi.object({
     id: Joi.number().required(),
+    teacherId: Joi.number().required(),
     name: Joi.string(),
     type: Joi.string().valid('akademik', 'non-akademik'),
     img: Joi.string().required(),
-    status: Joi.string().valid('active', 'deactivate'),
     description: Joi.string().required(),
     price: Joi.number()
 }).options({

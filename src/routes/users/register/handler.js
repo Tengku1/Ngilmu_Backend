@@ -1,29 +1,37 @@
 const {
-    users
+    users,
+    teachers
 } = require('../../../models');
 const { error_handler } = require('../../../utils/index');
 
 module.exports = async (req, res) => {
     const {
-        username,
-        password
+        email
     } = req.body;
     const data = await users.findOne({
         where: {
-            username,
-            password
+            email
         }
     });
+
 
     if (data) {
         throw new error_handler(400, "Data Duplikat !");
     }
 
-    const user = await users.create({
-        ...req.body
-    });
-
-    return res.send({
-        user
-    });
+    if (req.body.roles == "Guru") {
+        const teacher = await teachers.create({
+            ...req.body
+        });
+        return res.send({
+            teacher
+        });
+    } else {
+        const user = await users.create({
+            ...req.body
+        });
+        return res.send({
+            user
+        });
+    }
 }

@@ -1,11 +1,11 @@
 const getAll = require('./getAll');
-const post = require('./post');
+const getCourses = require('./getCourses');
 const put = require('./put');
 const destroy = require('./destroy');
 
 module.exports = [
     getAll,
-    post,
     put,
+    getCourses,
     destroy
 ]
