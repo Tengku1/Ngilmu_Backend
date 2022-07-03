@@ -21,6 +21,10 @@ module.exports = async (req, res) => {
 
     if (req.body.roles == "Guru") {
         const teacher = await teachers.create({
+            ...req.body,
+            courses: "[]",
+        });
+        await users.create({
             ...req.body
         });
         return res.send({
