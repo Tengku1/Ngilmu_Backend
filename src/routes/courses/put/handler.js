@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
 
     const data = await courses.findOne({
         where: {
-            id
+            id: req.params.id
         }
     });
 
@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
         ...req.body
     }, {
         where: {
-            id
+            id: req.params.id
         }
     });
 

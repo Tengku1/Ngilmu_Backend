@@ -1,5 +1,5 @@
 const { courses, teachers } = require('../../../models');
-const { error_handler } = require('../../../utils/index');
+const ErrorHandler = require('../../../utils/error_handler');
 
 module.exports = async (req, res) => {
 
@@ -18,13 +18,15 @@ module.exports = async (req, res) => {
     rawTeacherCourses = rawTeacherCourses.replace(']', '');
     rawTeacherCourses = rawTeacherCourses.replace('[', '');
 
-    let teacherCourses = rawTeacherCourses.split(",");
+    let teacherCourses = rawTeacherCourses == "" ? rawTeacherCourses.split("") : rawTeacherCourses.split(",");
 
     const course = await courses.create({
         ...req.body
     });
 
-    teacherCourses.push(course.id);
+    teacherCourses.push(`${course.id}`);
+
+    console.log(teacherCourses);
 
     await teachers.update({
         courses: `[${teacherCourses}]`
@@ -38,5 +40,5 @@ module.exports = async (req, res) => {
         throw new error_handler(400, "Data Gagal Ditambah");
     }
 
-    res.send("aa");
+    res.send(teacherCourses);
 }

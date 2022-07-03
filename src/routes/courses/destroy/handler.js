@@ -3,8 +3,10 @@ const { error_handler } = require('../../../utils/index');
 
 module.exports = async (req, res) => {
     const {
-        id
-    } = req.params;
+        params: {
+            id
+        }
+    } = req;
 
     const data = await courses.findOne({
         where: {
@@ -18,7 +20,7 @@ module.exports = async (req, res) => {
 
     const course = await courses.destroy({
         where: {
-            id
+            id: req.params.id
         }
     });
 
@@ -37,12 +39,15 @@ module.exports = async (req, res) => {
         throw new ErrorHandler(400, 'Data Guru Tidak Ditemukan!');
     }
 
+    console.log(teacher);
+
     let rawTeacherCourses = teacher['courses'];
     rawTeacherCourses = rawTeacherCourses.replace(']', '');
     rawTeacherCourses = rawTeacherCourses.replace('[', '');
 
     let teacherCourses = rawTeacherCourses.split(",");
-    teacherCourses.pop();
+    let teacherCoursesIndex = teacherCourses.indexOf(id);
+    teacherCourses.splice(teacherCoursesIndex, 1);
 
     await teachers.update({
         "courses": `[${teacherCourses}]`

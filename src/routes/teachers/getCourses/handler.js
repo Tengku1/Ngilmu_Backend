@@ -16,13 +16,19 @@ module.exports = async (req, res) => {
         throw new ErrorHandler(400, 'Data Guru Tidak Ditemukan!');
     }
 
-    let id = teacher['courses'];
-    id = id.replace(']', '');
-    id = id.replace('[', '');
+    var rawTeacherCourses = teacher['courses'];
+    rawTeacherCourses = rawTeacherCourses.replace(']', '');
+    rawTeacherCourses = rawTeacherCourses.replace('[', '');
 
-    const courses = await sequelize.query(`select * from courses where id in (${id})`, {
-        type: Sequelize.QueryTypes.SELECT
-    });
-
-    res.send(courses);
+    if (rawTeacherCourses.length == 0) {
+        const courses = await sequelize.query(`select * from courses where id in ("null")`, {
+            type: Sequelize.QueryTypes.SELECT
+        });
+        res.send(courses);
+    } else {
+        const courses = await sequelize.query(`select * from courses where id in (${rawTeacherCourses})`, {
+            type: Sequelize.QueryTypes.SELECT
+        });
+        res.send(courses);
+    }
 }
