@@ -12,12 +12,10 @@ const post = Joi.object({
 });
 
 const put = Joi.object({
-    id: Joi.number().required(),
-    teacherId: Joi.number().required(),
     name: Joi.string(),
     type: Joi.string().valid('akademik', 'non-akademik'),
-    img: Joi.string().required(),
-    description: Joi.string().required(),
+    img: Joi.string(),
+    description: Joi.string(),
     price: Joi.number()
 }).options({
     abortEarly: false
